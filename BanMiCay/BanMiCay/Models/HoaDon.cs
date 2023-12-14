@@ -22,13 +22,13 @@ namespace BanMiCay.Models
         [Column("ngay", TypeName = "datetime")]
         public DateTime? Ngay { get; set; }
         [Column("tongtien")]
-        public int? Tongtien { get; set; }
+        public int Tongtien { get; set; }
         [Column("makh")]
         public int Makh { get; set; }
         [Column("madc")]
         public int Madc { get; set; }
         [Column("trangthai")]
-        public int? Trangthai { get; set; }
+        public int Trangthai { get; set; }
 
         [ForeignKey(nameof(Madc))]
         [InverseProperty(nameof(DiaChi.HoaDon))]

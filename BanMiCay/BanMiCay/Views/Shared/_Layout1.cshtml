@@ -29,22 +29,25 @@
 
                             @foreach (var i in (List<DanhMuc>)ViewBag.danhmuc)
                             {
-                                <li><a class="dropdown-item" asp-controller="Home" asp-action="index1" asp-route-id="@i.Madm">@i.Ten</a></li>
-                            }
+                <li><a class="dropdown-item" asp-controller="Home" asp-action="index1" asp-route-id="@i.Madm">@i.Ten</a></li>}
 
                         </ul>
                     </li>
 
                 </ul>
                 <div class="d-flex">
+                    <div class="d-flex flex-row">
+                        <form asp-controller="Home" asp-action="Search">
+                            <input type="search" name="SearchKey" placeholder="Tìm kiếm...." class="form-control" />
+                        </form>
+
+                    </div>
                     @if (ViewBag.khachhang != null)
                     {
-                        <a asp-controller="Home" asp-action="Customer" class="btn btn-outline-light mx-1"><i class="bi bi-person"></i>@ViewBag.khachhang.Ten</a>
-                    }
-                    else
-                    {
-                        <a asp-controller="Home" asp-action="Login" class="btn btn-outline-light mx-1"><i class="bi bi-person"></i> Đăng nhập</a>
-                    }
+        <a asp-controller="Home" asp-action="Customer" class="btn btn-outline-light mx-1"><i class="bi bi-person"></i>@ViewBag.khachhang.Ten</a> }
+    else
+    {
+<a asp-controller="Home" asp-action="Login" class="btn btn-outline-light mx-1"><i class="bi bi-person"></i> Đăng nhập</a>}
 
                     <!--<span class="badge bg-danger text-white ms-1 rounded-pill"></span>-->
                     <a class="btn btn-outline-light" asp-controller="Home" asp-action="ViewCart"><i class="bi bi-cart3"></i> Giỏ hàng <span class="badge bg-danger text-white ms-1 rounded-pill">@ViewData["SoLuongGioHang"]</span></a>
@@ -59,12 +62,7 @@
         </div>
     </section>
 
-        <!-- Indicators/dots -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-        </div>
+
 
 
     <!-- Footer-->
@@ -84,11 +82,10 @@
                     </p>
                 </div>
                 <div class="col-3 text-muted">
-                    <h4>DANH MỤC HÀNG</h4>                 
+                    <h4>DANH MỤC HÀNG</h4>
                     @foreach (var i in (List<DanhMuc>)ViewBag.danhmuc)
                     {
-                        <a class="list-group-item" asp-action="index1" asp-route-id="@i.Madm">@i.Ten</a>
-                    }
+        <a class="list-group-item" asp-action="index1" asp-route-id="@i.Madm">@i.Ten</a>}
 
                 </div>
                 <div class="col-3 text-muted">
