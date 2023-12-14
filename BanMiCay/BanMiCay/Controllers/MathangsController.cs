@@ -7,105 +7,97 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BanMiCay.Data;
 using BanMiCay.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace BanMiCay.Controllers
 {
-    public class MathangsController : Controller
+    public class MatHangsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public MathangsController(ApplicationDbContext context)
+        public MatHangsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public void GetInfo()
-        {
-            ViewBag.danhmuc = _context.DanhMuc.ToList();
-        }
-
-        // GET: Mathangs
+        // GET: MatHangs
         public async Task<IActionResult> Index()
         {
-            GetInfo();
             var applicationDbContext = _context.MatHang.Include(m => m.MadmNavigation);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Mathangs/Details/5
+        // GET: MatHangs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            GetInfo();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var mathang = await _context.MatHang
+            var matHang = await _context.MatHang
                 .Include(m => m.MadmNavigation)
                 .FirstOrDefaultAsync(m => m.Mamh == id);
-            if (mathang == null)
+            if (matHang == null)
             {
                 return NotFound();
             }
 
-            return View(mathang);
+            return View(matHang);
         }
 
-        // GET: Mathangs/Create
+        // GET: MatHangs/Create
         public IActionResult Create()
         {
-            GetInfo();
             ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten");
             return View();
         }
 
-        // POST: Mathangs/Create
+        // POST: MatHangs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Madm,Luotxem,Luotmua")] MatHang mathang)
+        public async Task<IActionResult> Create([Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Daxoa,Madm")] MatHang matHang, IFormFile file)
         {
-            GetInfo();
             if (ModelState.IsValid)
             {
-                mathang.Daxoa = 0;
-                _context.Add(mathang);
+                //upload ảnh
+                matHang.Hinhanh = Upload(file);
+                _context.Add(matHang);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", mathang.Madm);
-            return View(mathang);
+            ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", matHang.Madm);
+            return View(matHang);
         }
 
-        // GET: Mathangs/Edit/5
+        // GET: MatHangs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            GetInfo();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var mathang = await _context.MatHang.FindAsync(id);
-            if (mathang == null)
+            var matHang = await _context.MatHang.FindAsync(id);
+            if (matHang == null)
             {
                 return NotFound();
             }
-            ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", mathang.Madm);
-            return View(mathang);
+            ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", matHang.Madm);
+            return View(matHang);
         }
 
-        // POST: Mathangs/Edit/5
+        // POST: MatHangs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Madm,Luotxem,Luotmua")] MatHang mathang)
+        public async Task<IActionResult> Edit(int id, [Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Daxoa,Madm")] MatHang matHang)
         {
-            GetInfo();
-            if (id != mathang.Mamh)
+            if (id != matHang.Mamh)
             {
                 return NotFound();
             }
@@ -114,12 +106,12 @@ namespace BanMiCay.Controllers
             {
                 try
                 {
-                    _context.Update(mathang);
+                    _context.Update(matHang);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MathangExists(mathang.Mamh))
+                    if (!MatHangExists(matHang.Mamh))
                     {
                         return NotFound();
                     }
@@ -130,44 +122,60 @@ namespace BanMiCay.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", mathang.Madm);
-            return View(mathang);
+            ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", matHang.Madm);
+            return View(matHang);
         }
 
-        // GET: Mathangs/Delete/5
+        // GET: MatHangs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            GetInfo();
             if (id == null)
             {
                 return NotFound();
             }
 
-            var mathang = await _context.MatHang
+            var matHang = await _context.MatHang
                 .Include(m => m.MadmNavigation)
                 .FirstOrDefaultAsync(m => m.Mamh == id);
-            if (mathang == null)
+            if (matHang == null)
             {
                 return NotFound();
             }
 
-            return View(mathang);
+            return View(matHang);
         }
 
-        // POST: Mathangs/Delete/5
+        // POST: MatHangs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var mathang = await _context.MatHang.FindAsync(id);
-            _context.MatHang.Remove(mathang);
+            var matHang = await _context.MatHang.FindAsync(id);
+            _context.MatHang.Remove(matHang);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MathangExists(int id)
+        private bool MatHangExists(int id)
         {
             return _context.MatHang.Any(e => e.Mamh == id);
+        }
+        public string Upload(IFormFile file)
+        {
+            string uploadFileName = null;
+            if (file != null)
+            {
+                // phát sinh tên file mới: chuỗi ngẫu nhiên_tên ảnh
+                uploadFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+                // chép file về thư mục lưu trữ ảnh
+                var path = $"wwwroot\\images\\product\\{uploadFileName}";
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+            }
+            return uploadFileName; // trả về tên file
         }
     }
 }

@@ -18,10 +18,12 @@ namespace BanMiCay.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IPasswordHasher<KhachHang> _passwordHasher;
-        public HomeController(ApplicationDbContext context, IPasswordHasher<KhachHang> passwordHasher)
+        private readonly IPasswordHasher<NhanVien> _nvpasswordHasher;
+        public HomeController(ApplicationDbContext context, IPasswordHasher<KhachHang> passwordHasher, IPasswordHasher<NhanVien> nvpasswordHasher)
         {
             _context = context;
             _passwordHasher = passwordHasher;
+            _nvpasswordHasher = nvpasswordHasher;
         }
         // GET: Home/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -193,12 +195,18 @@ namespace BanMiCay.Controllers
         public IActionResult Login(string email, string matkhau)
         {
             KhachHang kh = _context.KhachHang.FirstOrDefault(k => k.Email == email && k.Matkhau != null && k.Daxoa == 0);
-
+            var nv = _context.NhanVien.FirstOrDefault(n => n.Email == email);
             if (kh != null && matkhau != null && _passwordHasher.VerifyHashedPassword(kh, kh.Matkhau, matkhau) == PasswordVerificationResult.Success)
             {
                 HttpContext.Session.SetString("khachhang", kh.Makh.ToString());
                 return RedirectToAction(nameof(Customer));
             }
+            else if(nv!=null && _nvpasswordHasher.VerifyHashedPassword(nv,nv.Matkhau,matkhau) == PasswordVerificationResult.Success)
+            {
+                HttpContext.Session.SetString("nhanvien", email);
+                return RedirectToAction("Index","Main");
+            }
+
             return RedirectToAction(nameof(Login));
         }
 
@@ -211,7 +219,7 @@ namespace BanMiCay.Controllers
             if (tmp != null)
             {
                 // khách hàng đã có tài khoản
-                return View("dacotk", tmp);
+                return RedirectToAction(nameof(Register));
             }
             else
             {
