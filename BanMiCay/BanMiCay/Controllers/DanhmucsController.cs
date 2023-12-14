@@ -8,24 +8,24 @@ using Microsoft.EntityFrameworkCore;
 using BanMiCay.Data;
 using BanMiCay.Models;
 
-namespace ShopLapTop.Controllers
+namespace BanMiCay.Controllers
 {
-    public class DanhmucsController : Controller
+    public class DanhMucsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public DanhmucsController(ApplicationDbContext context)
+        public DanhMucsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Danhmucs
+        // GET: DanhMucs
         public async Task<IActionResult> Index()
         {
             return View(await _context.DanhMuc.ToListAsync());
         }
 
-        // GET: Danhmucs/Details/5
+        // GET: DanhMucs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace ShopLapTop.Controllers
                 return NotFound();
             }
 
-            var danhmuc = await _context.DanhMuc
+            var danhMuc = await _context.DanhMuc
                 .FirstOrDefaultAsync(m => m.Madm == id);
-            if (danhmuc == null)
+            if (danhMuc == null)
             {
                 return NotFound();
             }
 
-            return View(danhmuc);
+            return View(danhMuc);
         }
 
-        // GET: Danhmucs/Create
+        // GET: DanhMucs/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Danhmucs/Create
+        // POST: DanhMucs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Madm,Ten")] DanhMuc danhmuc)
+        public async Task<IActionResult> Create([Bind("Madm,Ten")] DanhMuc danhMuc)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(danhmuc);
+                _context.Add(danhMuc);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(danhmuc);
+            return View(danhMuc);
         }
 
-        // GET: Danhmucs/Edit/5
+        // GET: DanhMucs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace ShopLapTop.Controllers
                 return NotFound();
             }
 
-            var danhmuc = await _context.DanhMuc.FindAsync(id);
-            if (danhmuc == null)
+            var danhMuc = await _context.DanhMuc.FindAsync(id);
+            if (danhMuc == null)
             {
                 return NotFound();
             }
-            return View(danhmuc);
+            return View(danhMuc);
         }
 
-        // POST: Danhmucs/Edit/5
+        // POST: DanhMucs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Madm,Ten")] DanhMuc danhmuc)
+        public async Task<IActionResult> Edit(int id, [Bind("Madm,Ten")] DanhMuc danhMuc)
         {
-            if (id != danhmuc.Madm)
+            if (id != danhMuc.Madm)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace ShopLapTop.Controllers
             {
                 try
                 {
-                    _context.Update(danhmuc);
+                    _context.Update(danhMuc);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DanhmucExists(danhmuc.Madm))
+                    if (!DanhMucExists(danhMuc.Madm))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace ShopLapTop.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(danhmuc);
+            return View(danhMuc);
         }
 
-        // GET: Danhmucs/Delete/5
+        // GET: DanhMucs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,28 +124,28 @@ namespace ShopLapTop.Controllers
                 return NotFound();
             }
 
-            var danhmuc = await _context.DanhMuc
+            var danhMuc = await _context.DanhMuc
                 .FirstOrDefaultAsync(m => m.Madm == id);
-            if (danhmuc == null)
+            if (danhMuc == null)
             {
                 return NotFound();
             }
 
-            return View(danhmuc);
+            return View(danhMuc);
         }
 
-        // POST: Danhmucs/Delete/5
+        // POST: DanhMucs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var danhmuc = await _context.DanhMuc.FindAsync(id);
-            _context.DanhMuc.Remove(danhmuc);
+            var danhMuc = await _context.DanhMuc.FindAsync(id);
+            _context.DanhMuc.Remove(danhMuc);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DanhmucExists(int id)
+        private bool DanhMucExists(int id)
         {
             return _context.DanhMuc.Any(e => e.Madm == id);
         }

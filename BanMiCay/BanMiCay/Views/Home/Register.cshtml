@@ -6,7 +6,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <div class="p-3 shadow">
-            <h3 class="text-center text-dark">ĐĂNG KÝ</h3>
+            <h3 class="text-center text-success">ĐĂNG KÝ</h3>
             <form asp-action="Register">
                 <div class="my-3">
                     <label>Email</label>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="my-3">
                     <label>Mật khẩu</label>
-                    <input type="password" name="matkhau" class="form-control" />
+                    <input type="text" name="matkhau" class="form-control" />
                 </div>
                 <div class="my-3">
                     <label>Họ tên</label>
@@ -24,8 +24,15 @@
                     <label>Số điện thoại</label>
                     <input type="text" name="dienthoai" class="form-control" />
                 </div>
+                <div class="my-3">
+                    <label>Địa chỉ mặc định</label> <br />
+                    Địa chỉ cụ thể: <input type="text" name="diachicuthe" class="form-control" />
+                    Phường xã: <input type="text" name="phuongxa" class="form-control" />
+                    Quận huyện: <input type="text" name="quanhuyen" class="form-control" />
+                    Tỉnh thành: <input type="text" name="tinhthanh" class="form-control" />
+                </div>
                 <div class="d-grid">
-                    <input type="submit" value="Đăng ký" class="btn btn-dark btn-block" />
+                    <input type="submit" value="Đăng ký" class="btn btn-success btn-block" />
                 </div>
             </form>
         </div>

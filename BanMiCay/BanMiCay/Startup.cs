@@ -37,6 +37,7 @@ namespace BanMiCay
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSingleton<IPasswordHasher<KhachHang>, PasswordHasher<KhachHang>>();
+            services.AddSingleton<IPasswordHasher<NhanVien>, PasswordHasher<NhanVien>>();
             services.AddSession(options =>
             {
                 options.Cookie.Name = "Umege";
