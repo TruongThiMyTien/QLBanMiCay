@@ -70,6 +70,7 @@ namespace BanMiCay.Controllers
             GetInfo();
             if (ModelState.IsValid)
             {
+                mathang.Daxoa = 0;
                 _context.Add(mathang);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
