@@ -9555,11 +9555,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+      "projectUniqueName": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
       "projectName": "BanMiCay",
-      "projectPath": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+      "projectPath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
+      "outputPath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

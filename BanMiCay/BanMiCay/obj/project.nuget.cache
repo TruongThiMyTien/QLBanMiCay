@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FMgmgksNar1ekLJLRqVIrpcP8hxfgRiWgJGNDVeJds4ijZcSHi0a/qrZ+u38YcYfktrXARQ0Rx4qkOcjVzC10A==",
+  "dgSpecHash": "14zwHVf9juKvjEmCq2fM57FRKuf8Ka5yrMktSnXDIMY25SunU/jfHSrJ+EbwcCB/LedRWoQLSx2RWZhE2mPdEA==",
   "success": true,
-  "projectFilePath": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+  "projectFilePath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.32\\microsoft.aspnetcore.cryptography.internal.3.1.32.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.32\\microsoft.aspnetcore.cryptography.keyderivation.3.1.32.nupkg.sha512",
