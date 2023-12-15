@@ -59,12 +59,14 @@ namespace BanMiCay.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Daxoa,Madm")] MatHang matHang, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Mamh,Ten,Giagoc,Giaban,Mota,Hinhanh,Madm")] MatHang matHang, IFormFile file)
         {
             if (ModelState.IsValid)
             {
                 //upload ảnh
                 matHang.Hinhanh = Upload(file);
+                matHang.Daxoa = 0;
+                matHang.Soluong = 0;
                 _context.Add(matHang);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -95,7 +97,7 @@ namespace BanMiCay.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Daxoa,Madm")] MatHang matHang)
+        public async Task<IActionResult> Edit(int id, [Bind("Mamh,Ten,Giagoc,Giaban,Soluong,Mota,Hinhanh,Daxoa,Madm")] MatHang matHang, IFormFile file)
         {
             if (id != matHang.Mamh)
             {
@@ -106,6 +108,10 @@ namespace BanMiCay.Controllers
             {
                 try
                 {
+                    if(file != null)
+                    {
+                        matHang.Hinhanh = Upload(file);
+                    }    
                     _context.Update(matHang);
                     await _context.SaveChangesAsync();
                 }
@@ -151,7 +157,8 @@ namespace BanMiCay.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var matHang = await _context.MatHang.FindAsync(id);
-            _context.MatHang.Remove(matHang);
+            matHang.Daxoa = 1;
+            _context.MatHang.Update(matHang);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

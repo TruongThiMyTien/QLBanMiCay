@@ -11,7 +11,7 @@
             <label>Chọn mặt hàng:</label>
             <select class="form-select" name="id" aria-label="Disabled select example">
                 <option selected>Chọn mặt hàng</option>
-                @foreach (var i in (List<MatHang>)ViewBag.mathang)
+                @foreach (var i in ViewBag.mathang)
                 {
                     <option value="@i.Mamh">@i.Ten</option>
                 }

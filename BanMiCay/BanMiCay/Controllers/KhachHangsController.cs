@@ -66,7 +66,8 @@ namespace BanMiCay.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var khachHang = await _context.KhachHang.FindAsync(id);
-            _context.KhachHang.Remove(khachHang);
+            khachHang.Daxoa = 1;
+            _context.KhachHang.Update(khachHang);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
