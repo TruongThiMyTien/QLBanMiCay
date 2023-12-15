@@ -19,7 +19,6 @@ namespace BanMiCay.Models
         [Key]
         [Column("mahd")]
         public int Mahd { get; set; }
-        [Column("ngay", TypeName = "datetime")]
         public DateTime? Ngay { get; set; }
         [Column("tongtien")]
         public int Tongtien { get; set; }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BanMiCay.Data;
 using BanMiCay.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace BanMiCay.Controllers
 {
@@ -162,5 +163,6 @@ namespace BanMiCay.Controllers
         {
             return _context.HoaDon.Any(e => e.Mahd == id);
         }
+       
     }
 }

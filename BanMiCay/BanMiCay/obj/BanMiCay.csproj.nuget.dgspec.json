@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {}
+    "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {}
   },
   "projects": {
-    "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {
+    "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+        "projectUniqueName": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
         "projectName": "BanMiCay",
-        "projectPath": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\DOANNHOM_QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
+        "projectPath": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+        "packagesPath": "C:\\Users\\NHUT TAN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NHUT TAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +91,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -99,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
