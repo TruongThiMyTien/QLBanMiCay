@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BanMiCay.Data;
 using BanMiCay.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace BanMiCay.Controllers
 {
@@ -14,14 +16,24 @@ namespace BanMiCay.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public NhanViensController(ApplicationDbContext context)
+        private readonly IPasswordHasher<NhanVien> _nvpasswordHasher;
+
+        public NhanViensController(ApplicationDbContext context, IPasswordHasher<NhanVien> nvpasswordHasher)
         {
             _context = context;
+            _nvpasswordHasher = nvpasswordHasher;
+        }
+
+        public void GetInfo()
+        {
+            string email = HttpContext.Session.GetString("nhanvien");
+            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
         }
 
         // GET: NhanViens
         public async Task<IActionResult> Index()
         {
+            GetInfo();
             return View(await _context.NhanVien.ToListAsync());
         }
 
@@ -39,13 +51,14 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
-
+            GetInfo();
             return View(nhanVien);
         }
 
         // GET: NhanViens/Create
         public IActionResult Create()
         {
+            GetInfo();
             return View();
         }
 
@@ -54,14 +67,24 @@ namespace BanMiCay.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Manv,Ten,Dienthoai,Email,Matkhau,Quyen")] NhanVien nhanVien)
+        public async Task<IActionResult> Create([Bind("Manv,Ten,Dienthoai,Email,Matkhau,Quyen")] NhanVien nhanVien, int quyen)
         {
             if (ModelState.IsValid)
             {
+                if (quyen == 1)
+                {
+                    nhanVien.Quyen = 1;
+                }
+                else
+                {
+                    nhanVien.Quyen = 0;
+                }
+                nhanVien.Matkhau = _nvpasswordHasher.HashPassword(nhanVien, nhanVien.Matkhau);
                 _context.Add(nhanVien);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            GetInfo();
             return View(nhanVien);
         }
 
@@ -78,6 +101,7 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
+            GetInfo();
             return View(nhanVien);
         }
 
@@ -86,34 +110,24 @@ namespace BanMiCay.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Manv,Ten,Dienthoai,Email,Matkhau,Quyen")] NhanVien nhanVien)
+        public async Task<IActionResult> Edit(int manv, string hoten, string email, string matkhau, int quyen)
         {
-            if (id != nhanVien.Manv)
+            NhanVien nv = _context.NhanVien.FirstOrDefault(n => n.Manv == manv);
+            if(nv != null)
             {
-                return NotFound();
-            }
+                if (matkhau != null)
+                {
+                    nv.Matkhau = _nvpasswordHasher.HashPassword(nv, matkhau);
+                }nv.Ten = hoten;
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(nhanVien);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!NhanVienExists(nhanVien.Manv))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                nv.Email = email;
+                nv.Quyen = quyen;
+                _context.Update(nv);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
-            return View(nhanVien);
+            return RedirectToAction(nameof(Edit));
         }
 
         // GET: NhanViens/Delete/5
@@ -130,7 +144,7 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
-
+            GetInfo();
             return View(nhanVien);
         }
 

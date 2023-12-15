@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BanMiCay.Data;
 using BanMiCay.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace BanMiCay.Controllers
 {
@@ -19,9 +20,16 @@ namespace BanMiCay.Controllers
             _context = context;
         }
 
+        public void GetInfo()
+        {
+            string email = HttpContext.Session.GetString("nhanvien");
+            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
+        }
+
         // GET: KhachHangs
         public async Task<IActionResult> Index()
         {
+            GetInfo();
             return View(await _context.KhachHang.ToListAsync());
         }
 
@@ -39,7 +47,7 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
-
+            GetInfo();
             return View(khachHang);
         }
         // GET: KhachHangs/Delete/5
@@ -56,7 +64,7 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
-
+            GetInfo();
             return View(khachHang);
         }
 

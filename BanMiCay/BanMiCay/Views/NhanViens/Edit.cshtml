@@ -16,28 +16,33 @@
             <input type="hidden" asp-for="Manv" />
             <div class="form-group">
                 <label asp-for="Ten" class="control-label"></label>
-                <input asp-for="Ten" class="form-control" />
-                <span asp-validation-for="Ten" class="text-danger"></span>
+                <input name="hoten" class="form-control" value="@Model.Ten" />
             </div>
             <div class="form-group">
                 <label asp-for="Dienthoai" class="control-label"></label>
-                <input asp-for="Dienthoai" class="form-control" />
-                <span asp-validation-for="Dienthoai" class="text-danger"></span>
+                <input name="dienthoai" class="form-control" value="@Model.Dienthoai" />
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <input name="email" class="form-control" value="@Model.Email" />
             </div>
             <div class="form-group">
-                <label asp-for="Matkhau" class="control-label"></label>
-                <input asp-for="Matkhau" class="form-control" />
-                <span asp-validation-for="Matkhau" class="text-danger"></span>
+                <label class="control-label">Đặt lại mật khẩu</label>
+                <input name="matkhau" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Quyen" class="control-label"></label>
-                <input asp-for="Quyen" class="form-control" />
-                <span asp-validation-for="Quyen" class="text-danger"></span>
+                <label class="control-label">Quyền</label><br />
+                @if (Model.Quyen == 1)
+                {
+
+                    <input type="radio" id="0" name="quyen" value="0"> <label for="0">Nhân viên</label>
+                    <input type="radio" id="1" name="quyen" value="1" checked="true"> <label for="1">Quản lý</label>
+                }
+                else
+                {
+                    <input type="radio" id="0" name="quyen" value="0" checked="true"> <label for="0">Nhân viên</label>
+                    <input type="radio" id="1" name="quyen" value="1"> <label for="1">Quản lý</label>
+                }
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
