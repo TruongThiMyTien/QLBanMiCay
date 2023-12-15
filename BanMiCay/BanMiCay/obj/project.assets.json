@@ -3480,7 +3480,6 @@
       "path": "microsoft.aspnetcore.cryptography.internal/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll",
@@ -3497,7 +3496,6 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
@@ -3622,7 +3620,6 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
@@ -3639,7 +3636,6 @@
       "path": "microsoft.aspnetcore.identity.ui/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "build/Microsoft.AspNetCore.Identity.UI.props",
@@ -4458,7 +4454,6 @@
       "path": "microsoft.extensions.fileproviders.abstractions/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.xml",
@@ -4474,7 +4469,6 @@
       "path": "microsoft.extensions.fileproviders.embedded/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "build/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.props",
         "build/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.targets",
@@ -4508,7 +4502,6 @@
       "path": "microsoft.extensions.identity.core/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll",
@@ -4525,7 +4518,6 @@
       "path": "microsoft.extensions.identity.stores/3.1.32",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll",
@@ -9964,31 +9956,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NHUT TAN\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+      "projectUniqueName": "D:\\HK1_N4\\QLDA PM\\MiCay\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
       "projectName": "BanMiCay",
-      "projectPath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
-      "projectName": "BanMiCay",
-      "projectPath": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
-      "packagesPath": "C:\\Users\\NHUT TAN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
->>>>>>> main
+      "projectPath": "D:\\HK1_N4\\QLDA PM\\MiCay\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\HK1_N4\\QLDA PM\\MiCay\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\NHUT TAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9997,6 +9981,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10075,8 +10060,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\HK1_N4\\QLDA PM\\MiCay\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
