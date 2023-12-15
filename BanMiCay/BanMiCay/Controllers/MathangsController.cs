@@ -21,10 +21,17 @@ namespace BanMiCay.Controllers
             _context = context;
         }
 
+        public void GetInfo()
+        {
+            string email = HttpContext.Session.GetString("nhanvien");
+            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
+        }
+
         // GET: MatHangs
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.MatHang.Include(m => m.MadmNavigation);
+            GetInfo();
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -43,7 +50,7 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
-
+            GetInfo();
             return View(matHang);
         }
 
@@ -51,6 +58,7 @@ namespace BanMiCay.Controllers
         public IActionResult Create()
         {
             ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten");
+            GetInfo();
             return View();
         }
 
@@ -72,6 +80,7 @@ namespace BanMiCay.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", matHang.Madm);
+            GetInfo();
             return View(matHang);
         }
 
@@ -89,6 +98,7 @@ namespace BanMiCay.Controllers
                 return NotFound();
             }
             ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", matHang.Madm);
+            GetInfo();
             return View(matHang);
         }
 
@@ -129,6 +139,7 @@ namespace BanMiCay.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Madm"] = new SelectList(_context.DanhMuc, "Madm", "Ten", matHang.Madm);
+            GetInfo();
             return View(matHang);
         }
 
@@ -147,7 +158,7 @@ namespace BanMiCay.Controllers
             {
                 return NotFound();
             }
-
+            GetInfo();
             return View(matHang);
         }
 

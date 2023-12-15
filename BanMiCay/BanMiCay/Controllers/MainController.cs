@@ -1,5 +1,6 @@
 ﻿using BanMiCay.Data;
 using BanMiCay.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,14 +19,18 @@ namespace BanMiCay.Controllers
             _context = context;
         }
 
+        
+
         public IActionResult Index()
         {
+            GetInfo();
             return View();
         }
 
         // Thống kê theo ngày
         public IActionResult ThongKeTheoNgay()
         {
+            GetInfo();
             return View();
         }
 
@@ -41,6 +46,7 @@ namespace BanMiCay.Controllers
             ViewData["ngaybatdau"] = Ngaybatdau.Month.ToString() + "/" + Ngaybatdau.Day.ToString() + "/" + Ngaybatdau.Year.ToString();
             ViewData["ngayketthuc"] = Ngayketthuc.Month.ToString() + "/" + Ngayketthuc.Day.ToString() + "/" + Ngayketthuc.Year.ToString();
             ViewData["tongtien"] = tongtien.ToString("n0");
+            GetInfo();
             return View(lstHD);
         }
 
@@ -68,6 +74,8 @@ namespace BanMiCay.Controllers
 
         public void GetInfo()
         {
+            string email = HttpContext.Session.GetString("nhanvien");
+            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
             ViewBag.mathang = _context.MatHang.ToList();
         }
 
@@ -88,6 +96,7 @@ namespace BanMiCay.Controllers
                 tongtien += cthd.Thanhtien;
             }
             ViewData["tongtien"] = tongtien.ToString("n0");
+            GetInfo();
             return View(lstctHD);
         }
 
@@ -95,6 +104,7 @@ namespace BanMiCay.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var hd = _context.CthoaDon.Include(k => k.MamhNavigation).Where(m => m.Mahd == id);
+            GetInfo();
             return View(await hd.ToListAsync());
         }
 

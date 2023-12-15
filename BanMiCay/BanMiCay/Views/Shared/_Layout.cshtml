@@ -31,33 +31,59 @@
                 </a>
 
                 <ul class="sidebar-nav mx-3">
-                    <li class="sidebar-header">
-                        Trang quản lý
-                    </li>
+                    @if (ViewBag.nhanvien.Quyen == 1)
+                    {
+                        <li class="sidebar-header">
+                            Trang quản lý
+                        </li>
 
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" asp-action="Index" asp-controller="DanhMucs">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Quản lý danh mục</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" asp-action="Index" asp-controller="DanhMucs">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Quản lý danh mục</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" asp-action="Index" asp-controller="MatHangs">
-                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Quản lý sản phẩm</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-action="Index" asp-controller="MatHangs">
+                                <i class="align-middle" data-feather="user"></i> <span class="align-middle">Quản lý sản phẩm</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" asp-action="Index" asp-controller="KhachHangs">
-                            <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Quản lý khách hàng</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-action="Index" asp-controller="KhachHangs">
+                                <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Quản lý khách hàng</span>
+                            </a>
+                        </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" asp-action="Index" asp-controller="NhanViens">
-                            <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Quản lý nhân viên</span>
-                        </a>
-                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-action="Index" asp-controller="NhanViens">
+                                <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Quản lý nhân viên</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-header">
+                            Thống kê doanh thu
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-action="ThongKeTheoNgay" asp-controller="Main">
+                                <i class="align-middle" data-feather="square"></i> <span class="align-middle">Thống kê theo ngày</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-action="ThongKeKhachHang" asp-controller="Main">
+                                <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Thống kê theo khách hàng</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" asp-action="ThongKeTheoMatHang" asp-controller="Main">
+                                <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Thống kê theo mặt hàng</span>
+                            </a>
+                        </li>
+                    }
+
 
                     <li class="sidebar-header">
                         Quản lý hóa đơn
@@ -81,27 +107,7 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-header">
-                        Thống kê doanh thu
-                    </li>
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" asp-action="ThongKeTheoNgay" asp-controller="Main">
-                            <i class="align-middle" data-feather="square"></i> <span class="align-middle">Thống kê theo ngày</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" asp-action="ThongKeKhachHang" asp-controller="Main">
-                            <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Thống kê theo khách hàng</span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" asp-action="ThongKeTheoMatHang" asp-controller="Main">
-                            <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Thống kê theo mặt hàng</span>
-                        </a>
-                    </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" asp-action="Logout" asp-controller="Home">
                             <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">ĐĂNG XUẤT</span>
