@@ -68,6 +68,7 @@ namespace BanMiCay.Controllers
             ViewData["tongtien"] = tongtien.ToString("n0");
             return View(lstctHD);
         }
+<<<<<<< HEAD
         public IActionResult ThongKeDaDuyet()
         {
             return View();
@@ -83,5 +84,7 @@ namespace BanMiCay.Controllers
             return View(await hd.ToListAsync());
         }
 
+=======
+>>>>>>> main
     }
 }

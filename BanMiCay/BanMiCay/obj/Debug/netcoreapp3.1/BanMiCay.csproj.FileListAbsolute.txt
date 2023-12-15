@@ -954,6 +954,7 @@ C:\Users\NHUT TAN\Desktop\MiKhongCayyy\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\ne
 C:\Users\NHUT TAN\Desktop\MiKhongCayyy\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\Razor\Views\Main\XemThongKeTheoNgay.cshtml.g.cs
 C:\Users\NHUT TAN\Desktop\MiKhongCayyy\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\Razor\Views\Main\ThongKeTheoMatHang.cshtml.g.cs
 C:\Users\NHUT TAN\Desktop\MiKhongCayyy\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\Razor\Views\Main\XemThongKeTheoMatHang.cshtml.g.cs
+<<<<<<< HEAD
 D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\bin\Debug\netcoreapp3.1\appsettings.json
 D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\bin\Debug\netcoreapp3.1\BanMiCay.StaticWebAssets.xml
@@ -1202,3 +1203,5 @@ D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\BanMiCay.csproj.C
 D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\BanMiCay.dll
 D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\BanMiCay.pdb
 D:\QLDAPM\QLBanMiCay\BanMiCay\BanMiCay\obj\Debug\netcoreapp3.1\BanMiCay.genruntimeconfig.cache
+=======
+>>>>>>> main

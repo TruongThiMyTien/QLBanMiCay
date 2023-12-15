@@ -83,3 +83,10 @@ create table CTHoaDon
 );
 go
 
+select * from KhachHang
+select * from DiaChi
+select * from MatHang
+select * from CTHoaDon
+
+select * from CTHoaDon
+where mamh = 1
