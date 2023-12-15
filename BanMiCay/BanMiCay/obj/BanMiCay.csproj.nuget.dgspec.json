@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {}
+  },
+  "projects": {
+    "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+        "projectName": "BanMiCay",
+        "projectPath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\QLDAPM\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
+=======
     "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj": {}
   },
   "projects": {
@@ -12,6 +25,7 @@
         "projectPath": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\BanMiCay.csproj",
         "packagesPath": "C:\\Users\\NHUT TAN\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\NHUT TAN\\Desktop\\MiKhongCayyy\\QLBanMiCay\\BanMiCay\\BanMiCay\\obj\\",
+>>>>>>> main
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -68,5 +68,23 @@ namespace BanMiCay.Controllers
             ViewData["tongtien"] = tongtien.ToString("n0");
             return View(lstctHD);
         }
+<<<<<<< HEAD
+        public IActionResult ThongKeDaDuyet()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ThongKeTheoHoaDonDaDuyet()
+        {
+            var applicationDbContext = _context.HoaDon.Include(m => m.MakhNavigation).Where(h => h.Trangthai == 1);
+            return View(await applicationDbContext.ToListAsync());
+        }
+        public async Task<IActionResult> Details(int id)
+        {
+            var hd = _context.CthoaDon.Include(k => k.MamhNavigation).Where(m => m.Mahd == id);
+            return View(await hd.ToListAsync());
+        }
+
+=======
+>>>>>>> main
     }
 }
