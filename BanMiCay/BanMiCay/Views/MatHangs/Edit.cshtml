@@ -14,6 +14,8 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Mamh" />
+            <input type="hidden" asp-for="Daxoa" />
+            <input type="hidden" asp-for="Soluong"/>
             <div class="form-group">
                 <label asp-for="Ten" class="control-label"></label>
                 <input asp-for="Ten" class="form-control" />
@@ -29,11 +31,7 @@
                 <input asp-for="Giaban" class="form-control" />
                 <span asp-validation-for="Giaban" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Soluong" class="control-label"></label>
-                <input asp-for="Soluong" class="form-control" />
-                <span asp-validation-for="Soluong" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Mota" class="control-label"></label>
                 <input asp-for="Mota" class="form-control" />
@@ -41,13 +39,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Hinhanh" class="control-label"></label>
-                <input asp-for="Hinhanh" class="form-control" />
+                <input type="hidden" asp-for="Hinhanh" class="form-control" />
+                <input type="file" name="file" class="form-control" />
                 <span asp-validation-for="Hinhanh" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Daxoa" class="control-label"></label>
-                <input asp-for="Daxoa" class="form-control" />
-                <span asp-validation-for="Daxoa" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Madm" class="control-label"></label>

@@ -360,6 +360,7 @@ namespace BanMiCay.Controllers
                 kh.Ten = hoten;
                 kh.Email = email;
                 kh.Dienthoai = dienthoai;
+                kh.Daxoa = 0;
                 _context.Add(kh);
                 await _context.SaveChangesAsync();
 
