@@ -11,11 +11,10 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="~/Admin/img/icons/icon-48x48.png" />
-
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">      
+    <link rel="stylesheet" href="~/Admin/css/adminlte.min.css">   
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
-
     <link href="~/Admin/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -38,6 +37,12 @@
                         </li>
 
                         <li class="sidebar-item active">
+                            <a class="sidebar-link" asp-action="Index" asp-controller="Main">
+                                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Tổng quan</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
                             <a class="sidebar-link" asp-action="Index" asp-controller="DanhMucs">
                                 <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Quản lý danh mục</span>
                             </a>
