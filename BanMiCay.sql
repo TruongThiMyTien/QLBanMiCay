@@ -90,3 +90,8 @@ select * from CTHoaDon
 
 select * from CTHoaDon
 where mamh = 1
+select * from NhanVien
+INSERT INTO MATHANG(Ten,MoTa,GiaGoc,GiaBan,SoLuong,HinhAnh,MaDM) VALUES(N'Laptop HP 15s fq5229TU i3 1215U/8GB/512GB/Win11 (8U237PA) ',N'Laptop HP 15s fq5229TU i3 1215U (8U237PA) với thiết kế hiện đại, hiệu năng ổn định cùng mức giá phải chăng, chắc chắn sẽ trở thành người bạn đồng hành đáng tin cậy cho sinh viên và người đi làm để hoàn thành một cách hiệu quả mọi công việc và giải trí hàng ngày.',136000000,10990000,50,'p1.jpg',1,0,0);
+INSERT INTO DanhMuc (ten) values (N'Nước uống')
+INSERT INTO NHANVIEN(Ten,quyen,DienThoai,Email,MatKhau) VALUES(N'Admin',1,'0909456789','Admin@gmail.com','AQAAAAEAACcQAAAAEGIjtq0V/ui9IuHl6eSYu4xbk1Q89JO2iYTCeDYhb91z4kJdVA24OiOOj55dz+Ga8Q==');
+INSERT INTO NHANVIEN(Ten,quyen,DienThoai,Email,MatKhau) VALUES(N'nv01',0,'0123456789','nv01@gmail.com','AQAAAAEAACcQAAAAEGIjtq0V/ui9IuHl6eSYu4xbk1Q89JO2iYTCeDYhb91z4kJdVA24OiOOj55dz+Ga8Q==');

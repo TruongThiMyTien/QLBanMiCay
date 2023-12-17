@@ -19,13 +19,28 @@ namespace BanMiCay.Controllers
             _context = context;
         }
 
-        
-
         public IActionResult Index()
         {
+            TongQuan();   
             GetInfo();
             return View();
         }
+        public void TongQuan()
+        {
+            string email = HttpContext.Session.GetString("nhanvien");
+            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
+            ViewBag.TotalOrder = _context.HoaDon.Count(x => x.Trangthai == 1);
+            var lstctHD = _context.CthoaDon.Include(m => m.MamhNavigation);
+            int tongtien = 0;
+            foreach (CthoaDon cthd in lstctHD)
+            {
+                tongtien += cthd.Thanhtien;
+            }
+            ViewData["tongtien"] = tongtien.ToString("n0");
+            ViewBag.TotalClient = _context.KhachHang.Count();
+            ViewBag.TotalProduct = _context.MatHang.Count();
+        }
+
 
         // Thống kê theo ngày
         public IActionResult ThongKeTheoNgay()
