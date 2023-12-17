@@ -18,6 +18,12 @@ namespace BanMiCay.Controllers
         {
             _context = context;
         }
+        public void GetInfo()
+        {
+            string email = HttpContext.Session.GetString("nhanvien");
+            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
+            ViewBag.mathang = _context.MatHang.ToList();
+        }
 
         public IActionResult Index()
         {
@@ -27,18 +33,16 @@ namespace BanMiCay.Controllers
         }
         public void TongQuan()
         {
-            string email = HttpContext.Session.GetString("nhanvien");
-            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
             ViewBag.TotalOrder = _context.HoaDon.Count(x => x.Trangthai == 1);
-            var lstctHD = _context.CthoaDon.Include(m => m.MamhNavigation);
+            var lstHoaDon = _context.HoaDon.Where(d => d.Trangthai == 1);
             int tongtien = 0;
-            foreach (CthoaDon cthd in lstctHD)
+            foreach (HoaDon hd in lstHoaDon)
             {
-                tongtien += cthd.Thanhtien;
+                tongtien += hd.Tongtien;
             }
             ViewData["tongtien"] = tongtien.ToString("n0");
-            ViewBag.TotalClient = _context.KhachHang.Count();
-            ViewBag.TotalProduct = _context.MatHang.Count();
+            ViewBag.TotalClient = _context.KhachHang.Count(k => k.Matkhau != null);
+            ViewBag.TotalProduct = _context.MatHang.Count(h => h.Daxoa == 0);
         }
 
 
@@ -87,12 +91,6 @@ namespace BanMiCay.Controllers
         }
 
 
-        public void GetInfo()
-        {
-            string email = HttpContext.Session.GetString("nhanvien");
-            ViewBag.nhanvien = _context.NhanVien.FirstOrDefault(n => n.Email == email);
-            ViewBag.mathang = _context.MatHang.ToList();
-        }
 
         // Thống kê theo mặt hàng
         public IActionResult ThongKeTheoMatHang()
